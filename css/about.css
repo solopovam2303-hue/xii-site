@@ -1,0 +1,175 @@
+/* XII — блок 2: «что такое XII» + 4 карточки, и переход из красного в чёрное.
+   Всё считается через ту же единицу --s, что и первый экран (hero.css), поэтому
+   левый и правый края блока совпадают с 1-й и 13-й линиями сетки (отступ 40 * --s).
+   На телефоне --s = 1px, отступ 20px, как у сетки первого экрана. */
+
+.about{
+  --m:calc(40 * var(--s));
+  position:relative;
+  background:var(--bg);
+  color:var(--milk);
+  padding:0 0 calc(120 * var(--s));
+  overflow:hidden;
+}
+
+/* ---------- переход: красное по сетке рассыпается на мелкие кусочки ---------- */
+.dissolve{
+  --n:72;                                   /* клеток между отступами: 6 на каждую колонку сетки */
+  --rows:6;
+  --cell:calc((100vw - 2 * var(--m)) / var(--n));
+  --p:0;
+  position:relative;z-index:1;
+  display:grid;
+  grid-template-columns:var(--m) repeat(var(--n), var(--cell)) var(--m);
+  grid-auto-rows:var(--cell);
+  height:calc(var(--cell) * var(--rows));
+  pointer-events:none;
+}
+.dissolve i{
+  display:block;
+  --k:clamp(0, calc((var(--t) - var(--p)) * 4), 1);
+  background:var(--red);
+  box-shadow:0 0 0 .6px var(--red);          /* без тёмных швов между клетками */
+  opacity:var(--k);
+  transform:
+    translate(calc((1 - var(--k)) * var(--dx) * var(--cell)), calc((1 - var(--k)) * var(--dy) * var(--cell)))
+    rotate(calc((1 - var(--k)) * var(--r) * 1deg))
+    scale(calc(.35 + var(--k) * .65));
+  will-change:transform,opacity;
+}
+
+/* ---------- шапка блока ---------- */
+.about__head{
+  position:relative;z-index:2;
+  display:grid;
+  grid-template-columns:repeat(12,1fr);
+  align-items:end;
+  margin:calc(36 * var(--s)) var(--m) calc(56 * var(--s));
+}
+.about__title{
+  grid-column:1 / span 8;
+  margin:0;
+  font-family:var(--ff-cap);font-weight:400;
+  font-size:calc(34 * var(--s));line-height:1.12;
+  color:rgba(249,236,234,.72);
+}
+.about__title .c-red{color:var(--red)}
+.about__lead{
+  grid-column:9 / span 4;                    /* от 9-й до 13-й линии, как меню */
+  margin:0;
+  font-weight:300;
+  font-size:calc(18 * var(--s));line-height:1.45;
+  letter-spacing:calc(-.18 * var(--s));
+  color:rgba(240,237,227,.62);
+}
+
+/* ---------- 12 сфер: тонкая строка от 1-й до 13-й линии ---------- */
+.spheres{
+  position:relative;z-index:2;
+  display:flex;justify-content:space-between;gap:calc(12 * var(--s));
+  list-style:none;
+  margin:0 var(--m) calc(80 * var(--s));
+  padding:calc(14 * var(--s)) 0;
+  border-top:1px solid rgba(240,237,227,.14);
+  border-bottom:1px solid rgba(240,237,227,.14);
+  font-weight:300;
+  font-size:calc(14 * var(--s));line-height:1.3;
+  color:rgba(240,237,227,.62);
+}
+.spheres li{white-space:nowrap}
+.spheres sup{
+  margin-left:.25em;
+  font-size:.62em;line-height:0;vertical-align:.7em;
+  letter-spacing:.02em;
+}
+/* ---------- карточки ---------- */
+.cards{
+  position:relative;z-index:2;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:calc(12 * var(--s));
+  margin:0 var(--m);
+}
+.card{
+  position:relative;
+  aspect-ratio:285 / 380;
+  border-radius:calc(24 * var(--s));
+  overflow:hidden;
+  isolation:isolate;
+  background:#1a1413;
+  border:1px solid rgba(254,67,50,.28);
+  transition:border-color .4s ease;
+}
+.card__img{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;
+  filter:grayscale(1) contrast(1.05) brightness(1.02);
+  z-index:-3;
+  transition:transform .8s cubic-bezier(.2,.8,.2,1);
+}
+.card:hover .card__img{transform:scale(1.05)}
+.card:first-child .card__img{object-position:50% 18%}
+/* мягкий красный сверху (около 10%) плавно уходит в тёмное к низу */
+.card::before{
+  content:"";position:absolute;inset:0;z-index:-2;
+  background:linear-gradient(180deg,rgba(254,92,74,.16) 0%,rgba(214,52,38,.40) 42%,rgba(96,18,12,.74) 100%);
+  transition:opacity .6s ease;
+}
+.card:hover::before{opacity:.72}
+.card::after{
+  content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(180deg,rgba(15,14,14,0) 40%,rgba(15,14,14,.86) 100%);
+}
+.card__n{
+  position:absolute;right:calc(26 * var(--s));top:calc(20 * var(--s));
+  font-family:var(--ff-cap);font-weight:500;
+  font-size:calc(44 * var(--s));line-height:1;
+  color:#fff;
+}
+.card__t{
+  position:absolute;left:calc(22 * var(--s));right:calc(22 * var(--s));bottom:calc(24 * var(--s));
+}
+.card__h{
+  margin:0 0 calc(10 * var(--s));
+  font-family:var(--ff-cap);font-weight:400;
+  font-size:calc(19 * var(--s));line-height:1.2;
+  min-height:2.4em;                          /* всегда две строки: начало заголовков на одной линии */
+  color:#fff;
+}
+.card__p{
+  margin:0;
+  min-height:4.2em;                          /* три строки: заголовки не прыгают */
+  font-weight:300;
+  font-size:calc(14 * var(--s));line-height:1.4;
+  color:rgba(255,255,255,.82);
+}
+
+/* появление по скроллу: прозрачность и сдвиг задаёт about.js */
+.card:hover{border-color:rgba(254,67,50,.75)}
+
+
+/* ---------- телефон ---------- */
+@media (max-width:900px){
+  .about{--m:20px;padding-bottom:72px}
+  .dissolve{--n:30;--rows:5}
+  .about__head{display:block;margin:24px var(--m) 28px}
+  .about__title{font-size:clamp(22px,6.2vw,28px);line-height:1.14;margin-bottom:16px}
+  .about__lead{font-size:16px;line-height:1.45;letter-spacing:-.1px}
+  .spheres{flex-wrap:wrap;justify-content:flex-start;gap:8px 12px;margin:0 var(--m) 24px;padding:12px 0;font-size:13px}
+  .cards{
+    display:flex;gap:10px;
+    overflow-x:auto;scroll-snap-type:x mandatory;
+    margin:0;padding:0 var(--m) 6px;scroll-padding:0 var(--m);
+    scrollbar-width:none;
+  }
+  .cards::-webkit-scrollbar{display:none}
+  .card{flex:0 0 74vw;max-width:320px;scroll-snap-align:start;border-radius:22px}
+  .card__n{font-size:34px;right:20px;top:16px}
+  .card__t{left:18px;right:18px;bottom:20px}
+  .card__h{font-size:17px;margin-bottom:8px}
+  .card__p{font-size:14px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .dissolve{display:none}
+}

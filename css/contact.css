@@ -1,0 +1,20 @@
+/* XII — кнопка «Связаться»: небольшое меню «Позвонить / Написать SMS» */
+button.btn{font-family:inherit;cursor:pointer;appearance:none;-webkit-appearance:none}
+.cm{
+  position:fixed;z-index:60;min-width:230px;
+  padding:6px;border-radius:18px;
+  background:#1a1413;border:1px solid rgba(240,237,227,.18);
+  box-shadow:0 14px 40px rgba(0,0,0,.5);
+  opacity:0;transform:translateY(6px) scale(.98);pointer-events:none;
+  transition:opacity .22s ease,transform .3s cubic-bezier(.2,.8,.2,1);
+}
+.cm.is-open{opacity:1;transform:none;pointer-events:auto}
+.cm a{
+  display:flex;flex-direction:column;gap:2px;
+  padding:12px 16px;border-radius:12px;
+  color:#f0ede3;text-decoration:none;font-size:17px;line-height:1.2;
+  transition:background .2s ease;
+}
+.cm a:hover,.cm a:focus-visible{background:rgba(240,237,227,.09);outline:none}
+.cm small{font-weight:300;font-size:13px;color:rgba(240,237,227,.6)}
+@media (prefers-reduced-motion:reduce){.cm{transition:none}}

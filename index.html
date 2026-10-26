@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>XII — организация свадеб и праздников в Туле, Калуге и Москве</title>
+<meta name="description" content="Агентство XII организует свадьбы и праздники в Туле, Калуге и Москве: идея и сценарий с нуля, открытая смета, два координатора в день праздника.">
+<meta name="theme-color" content="#0f0e0e">
+<meta name="color-scheme" content="dark">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;600&family=Unbounded:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/hero.css?v=13">
+<link rel="stylesheet" href="css/preloader.css?v=3">
+<link rel="stylesheet" href="css/about.css?v=13">
+<link rel="stylesheet" href="css/fest.css?v=15">
+<link rel="stylesheet" href="css/work.css?v=17">
+<link rel="stylesheet" href="css/lena.css?v=11">
+<link rel="stylesheet" href="css/faq.css?v=5">
+<link rel="stylesheet" href="css/pause.css?v=4">
+<link rel="stylesheet" href="css/scn.css?v=3">
+<link rel="stylesheet" href="css/footer.css?v=12">
+<script>
+/* Прелоадер показываем только при первом заходе. ?pre=1 — показать принудительно, ?pre=0 — пропустить */
+(function(){try{
+  var q=location.search, force=/[?&]pre=1/.test(q), skip=/[?&]pre=0/.test(q);
+  var seen=localStorage.getItem('xii_pre_seen');
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(force||(!skip&&!seen&&!reduce)){document.documentElement.classList.add('pre-active');}
+}catch(e){}})();
+</script>
+<noscript><style>.pre{display:none!important}html .rv,html .logo,html .plus,html .hero__media,html .hero__grid{opacity:1!important}</style></noscript>
+
+<link rel="stylesheet" href="css/tablet.css?v=3">
+<link rel="stylesheet" href="css/contact.css?v=1">
+</head>
+<body>
+
+<!-- Прелоадер -->
+<div class="pre" id="pre" aria-hidden="true">
+  <div class="pre__grid" id="preGrid">
+    <i style="--k:0"></i><i style="--k:1"></i><i style="--k:2"></i><i style="--k:3"></i><i style="--k:4"></i><i style="--k:5"></i><i style="--k:6"></i><i style="--k:7"></i><i style="--k:8"></i><i style="--k:9"></i><i style="--k:10"></i><i style="--k:11"></i><i style="--k:12"></i>
+  </div>
+  <img class="pre__plus pre__plus--a" src="assets/svg/plus.svg" alt="">
+  <img class="pre__plus pre__plus--b" src="assets/svg/plus.svg" alt="">
+  <p class="pre__tag" id="preTag">агентство мероприятий</p>
+
+  <!-- этап 1: логотип по центру (заливка слева направо) -->
+  <div class="pre__logo" id="preLogo">
+    <img class="pre__logoDim" src="assets/svg/pre-logo.svg" alt="">
+    <img class="pre__logoFill" id="preLogoFill" src="assets/svg/pre-logo.svg" alt="">
+  </div>
+
+  <!-- этап 2-3: логотип с подписью; два слоя — «XII +» и подпись -->
+  <div class="pre__ls" id="preLs">
+    <img class="pre__lsX" id="preLsX" src="assets/svg/pre-logo-slogan.svg" alt="">
+    <img class="pre__lsS" id="preLsS" src="assets/svg/pre-logo-slogan.svg" alt="">
+  </div>
+
+  <div class="pre__letters" id="preLetters">
+    <span style="--p:0">З</span><span style="--p:1">Д</span><span style="--p:2">Е</span><span style="--p:3">С</span><span style="--p:4">Ь</span><span style="--p:5.5">И</span><span style="--p:7">С</span><span style="--p:8">Е</span><span style="--p:9">Й</span><span style="--p:10">Ч</span><span style="--p:11">А</span><span style="--p:12">С</span>
+  </div>
+</div>
+
+<header class="hero" id="top">
+  <!-- Фоновое видео -->
+  <div class="hero__media" aria-hidden="true">
+    <video class="hero__video" id="heroVideo" muted loop playsinline autoplay preload="auto"
+           poster="assets/img/poster-desktop.jpg?v=6"
+           data-src-desktop="assets/video/hero-desktop.mp4?v=6"
+           data-src-mobile="assets/video/hero-mobile.mp4?v=6"
+           data-poster-desktop="assets/img/poster-desktop.jpg?v=6"
+           data-poster-mobile="assets/img/poster-mobile.jpg?v=6"></video>
+    <div class="hero__shade"></div>
+  </div>
+
+  <!-- Сетка из 12 колонок -->
+  <div class="hero__grid" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+
+  <!-- Красные «+» -->
+  <img class="plus plus--a" src="assets/svg/plus.svg" alt="">
+  <img class="plus plus--b" src="assets/svg/plus.svg" alt="">
+
+  <!-- Логотип и подпись -->
+  <a class="logo" href="#top" aria-label="XII — здесь и сейчас, на главную">
+    <img src="assets/svg/logo-full.svg" alt="XII — здесь и сейчас">
+  </a>
+
+  <!-- Меню -->
+  <nav class="menu rv" style="--d:.15s" aria-label="Основное меню">
+    <a href="#fest">Праздники</a>
+    <a href="#approach">Подход</a>
+    <a href="#price">Стоимость</a>
+    <a href="#contacts">Контакты</a>
+  </nav>
+  <button class="burger rv" style="--d:.15s" id="burger" type="button" aria-label="Открыть меню" aria-expanded="false"><span></span><span></span></button>
+
+  <!-- Что мы берём на себя -->
+  <aside class="takes rv" style="--d:.3s">
+    <i class="takes__line" aria-hidden="true"></i>
+    <p class="takes__title">Что&nbsp;мы берём на&nbsp;себя</p>
+    <ul class="takes__list">
+      <li>Идея</li><li>Сценарий</li><li>Площадка</li><li>Команда</li><li>Координация</li>
+    </ul>
+    <p class="takes__inline">Идея · Сценарий · Площадка · Команда · Координация</p>
+  </aside>
+
+  <!-- Заголовок -->
+  <div class="headline">
+    <p class="headline__kicker rv" style="--d:.35s">Агентство мероприятий</p>
+    <h1 class="headline__title"><span class="c-a">Организуем свадьбы<br class="br-d"> и&nbsp;праздники</span> <span class="c-b">в&nbsp;Туле, Калуге и&nbsp;Москве</span></h1>
+  </div>
+
+  <!-- Кнопки -->
+  <div class="actions rv" style="--d:.8s">
+    <button class="btn btn--red" type="button" data-contact aria-haspopup="true" aria-expanded="false">Связаться</button>
+    <a class="btn btn--line" href="https://t.me/elenanikolaeva12" target="_blank" rel="noopener">Написать в&nbsp;Telegram</a>
+  </div>
+
+  <!-- Мобильное меню -->
+  <div class="sheet" id="sheet">
+    <a href="#fest">Праздники</a><a href="#approach">Подход</a><a href="#price">Стоимость</a><a href="#contacts">Контакты</a>
+  </div>
+</header>
+
+<!-- Блок 2: что такое XII + 4 карточки -->
+<section class="about" id="about">
+  <div class="dissolve" id="dissolve" aria-hidden="true"></div>
+
+  <div class="about__head">
+    <h2 class="about__title"><span class="c-red">XII</span>&nbsp;— 12&nbsp;месяцев,<br>12&nbsp;сфер жизни</h2>
+    <p class="about__lead">Праздники случаются круглый год.<br class="br-t"> В&nbsp;каждом празднике<br class="br-d"> мы&nbsp;проходим 12&nbsp;сфер:<br class="br-t"> от&nbsp;идеи и&nbsp;атмосферы<br class="br-d"> до&nbsp;ритма дня и&nbsp;воспоминаний.</p>
+  </div>
+
+  <ul class="spheres" aria-label="12 сфер жизни">
+    <li>Энергия<sup>I</sup></li><li>Смысл<sup>II</sup></li><li>Символика<sup>III</sup></li><li>Эстетика<sup>IV</sup></li><li>Пространство<sup>V</sup></li><li>Музыка<sup>VI</sup></li><li>Эмоции<sup>VII</sup></li><li>Команда<sup>VIII</sup></li><li>Впечатления<sup>IX</sup></li><li>Ритм<sup>X</sup></li><li>Забота<sup>XI</sup></li><li>Воспоминания<sup>XII</sup></li>
+  </ul>
+
+  <div class="cards" id="cards">
+    <article class="card">
+      <img class="card__img" src="assets/img/card-1.jpg?v=2" alt="" loading="lazy">
+      <div class="card__t">
+        <h3 class="card__h">Сценарий<br>под вашу историю</h3>
+        <p class="card__p">Придумываем идею и&nbsp;пишем сценарий дня: логику, эмоции и&nbsp;ритм.</p>
+      </div>
+    </article>
+    <article class="card">
+      <img class="card__img" src="assets/img/card-2.jpg" alt="" loading="lazy">
+      <div class="card__t">
+        <h3 class="card__h">Предоплаты<br>при&nbsp;договоре нет</h3>
+        <p class="card__p">Договор подписываем, когда поймём, что&nbsp;подходим друг другу.</p>
+      </div>
+    </article>
+    <article class="card">
+      <img class="card__img" src="assets/img/card-3.jpg" alt="" loading="lazy">
+      <div class="card__t">
+        <h3 class="card__h">Смета<br>с&nbsp;открытыми ценами</h3>
+        <p class="card__p">Оплата за&nbsp;3–4&nbsp;дня до&nbsp;праздника. В&nbsp;каждой строке видно, за&nbsp;что<br class="br-m"> вы&nbsp;платите.</p>
+      </div>
+    </article>
+    <article class="card">
+      <img class="card__img" src="assets/img/card-4.jpg" alt="" loading="lazy">
+      <div class="card__t">
+        <h3 class="card__h">Два координатора<br>в&nbsp;день праздника</h3>
+        <p class="card__p">Пока один с&nbsp;вами, второй<br class="br-m"> встречает гостей.<br>Вы в&nbsp;моменте, суета на&nbsp;нас.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- Блок 3: какие праздники мы организуем -->
+<section class="fest" id="fest">
+  <div class="fest__stage">
+    <div class="fest__bg" aria-hidden="true"><i></i><i></i></div>
+    <p class="fest__label">Какие праздники мы организуем</p>
+    <h2 class="fest__title">Свадьбы.<br>Дни рождения.<br>Вечеринки.</h2>
+    <p class="fest__lead">Каждый момент особенный и&nbsp;незабываемый.<br class="br-t"> Будьте здесь и&nbsp;сейчас, а&nbsp;всё остальное мы&nbsp;возьмём на&nbsp;себя.</p>
+    <div class="fest__row" id="festRow">
+      <figure class="fcard" tabindex="0"><div class="fcard__in"><img loading="lazy" src="assets/img/fest-01.jpg" alt="" style="object-position:50% 50%" decoding="async"></div><figcaption class="fcap"><span class="fcap__top"><i class="fcap__plus" aria-hidden="true"></i><span class="fcap__n">I</span></span><strong class="fcap__t">Тишина</strong><span class="fcap__d">Перед словом «да»</span></figcaption></figure>
+      <figure class="fcard" tabindex="0"><div class="fcard__in"><img loading="lazy" src="assets/img/fest-06.jpg" alt="" style="object-position:50% 45%" decoding="async"></div><figcaption class="fcap"><span class="fcap__top"><i class="fcap__plus" aria-hidden="true"></i><span class="fcap__n">II</span></span><strong class="fcap__t">Новая история</strong><span class="fcap__d">Танец у&nbsp;фонтана</span></figcaption></figure>
+      <figure class="fcard" tabindex="0"><div class="fcard__in"><img loading="lazy" src="assets/img/fest-02.jpg" alt="" style="object-position:62% 50%" decoding="async"></div><figcaption class="fcap"><span class="fcap__top"><i class="fcap__plus" aria-hidden="true"></i><span class="fcap__n">III</span></span><strong class="fcap__t">Растворились</strong><span class="fcap__d">Первый танец в&nbsp;дыму</span></figcaption></figure>
+      <figure class="fcard" tabindex="0"><div class="fcard__in"><img loading="lazy" src="assets/img/fest-10.jpg?v=2" alt="" style="object-position:56% 50%" decoding="async"></div><figcaption class="fcap"><span class="fcap__top"><i class="fcap__plus" aria-hidden="true"></i><span class="fcap__n">IV</span></span><strong class="fcap__t">Зажигайте</strong><span class="fcap__d">Друзья, веера, музыка</span></figcaption></figure>
+      <figure class="fcard" tabindex="0"><div class="fcard__in"><img loading="lazy" src="assets/img/fest-09.jpg" alt="" style="object-position:50% 40%" decoding="async"></div><figcaption class="fcap"><span class="fcap__top"><i class="fcap__plus" aria-hidden="true"></i><span class="fcap__n">V</span></span><strong class="fcap__t">Небо ваше</strong><span class="fcap__d">Салют для&nbsp;двоих</span></figcaption></figure>
+      <figure class="fcard" tabindex="0"><div class="fcard__in"><img loading="lazy" src="assets/img/fest-05.jpg" alt="" style="object-position:50% 50%" decoding="async"></div><figcaption class="fcap"><span class="fcap__top"><i class="fcap__plus" aria-hidden="true"></i><span class="fcap__n">VI</span></span><strong class="fcap__t">Яркий день</strong><span class="fcap__d">Тосты и&nbsp;смех</span></figcaption></figure>
+      <figure class="fcard" tabindex="0"><div class="fcard__in"><img loading="lazy" src="assets/img/fest-03.jpg?v=2" alt="" style="object-position:50% 50%" decoding="async"></div><figcaption class="fcap"><span class="fcap__top"><i class="fcap__plus" aria-hidden="true"></i><span class="fcap__n">VII</span></span><strong class="fcap__t">Только вы</strong><span class="fcap__d">Двое среди тумана</span></figcaption></figure>
+      <figure class="fcard" tabindex="0"><div class="fcard__in"><img loading="lazy" src="assets/img/fest-13.jpg" alt="" style="object-position:50% 72%" decoding="async"></div><figcaption class="fcap"><span class="fcap__top"><i class="fcap__plus" aria-hidden="true"></i><span class="fcap__n">VIII</span></span><strong class="fcap__t">Здесь</strong><span class="fcap__d">То, что&nbsp;вы будете вспоминать</span></figcaption></figure>
+      <figure class="fcard" tabindex="0"><div class="fcard__in"><img loading="lazy" src="assets/img/fest-11.jpg?v=2" alt="" style="object-position:46% 50%" decoding="async"></div><figcaption class="fcap"><span class="fcap__top"><i class="fcap__plus" aria-hidden="true"></i><span class="fcap__n">IX</span></span><strong class="fcap__t">Сейчас</strong><span class="fcap__d">Ваши лучшие моменты</span></figcaption></figure>
+      <figure class="fcard" tabindex="0"><div class="fcard__in"><img loading="lazy" src="assets/img/fest-04.jpg?v=3" alt="" style="object-position:45% 50%" decoding="async"></div><figcaption class="fcap"><span class="fcap__top"><i class="fcap__plus" aria-hidden="true"></i><span class="fcap__n">X</span></span><strong class="fcap__t">Лёгкость</strong><span class="fcap__d">Коктейль и смех</span></figcaption></figure>
+      <figure class="fcard" tabindex="0"><div class="fcard__in"><img loading="lazy" src="assets/img/fest-08.jpg" alt="" style="object-position:55% 50%" decoding="async"></div><figcaption class="fcap"><span class="fcap__top"><i class="fcap__plus" aria-hidden="true"></i><span class="fcap__n">XI</span></span><strong class="fcap__t">Свои люди</strong><span class="fcap__d">Выход пары в&nbsp;зал</span></figcaption></figure>
+      <figure class="fcard" tabindex="0"><div class="fcard__in"><img loading="lazy" src="assets/img/fest-07.jpg?v=3" alt="" style="object-position:40% 50%" decoding="async"></div><figcaption class="fcap"><span class="fcap__top"><i class="fcap__plus" aria-hidden="true"></i><span class="fcap__n">XII</span></span><strong class="fcap__t">На память</strong><span class="fcap__d">Кадры, к которым хочется вернуться</span></figcaption></figure>
+    </div>
+  </div>
+  </div></div>
+</section>
+
+<!-- Блок 4: форматы -->
+<section class="work" id="approach">
+  <div class="build" id="build" aria-hidden="true"></div>
+  <div class="work__wrap"><div class="work__frame">
+  <div class="work__head">
+    <h2 class="work__title">Празднуйте.<br>Мы рядом.</h2>
+    <p class="work__lead">Выберите, как&nbsp;вам удобнее: доверить нам всю подготовку<br class="br-d"> или&nbsp;только день праздника.</p>
+  </div>
+
+  <div class="formats" id="formats">
+    <article class="fmt fmt--main">
+      <img loading="lazy" class="fmt__img" src="assets/img/fmt-org.jpg?v=3" alt="" style="object-position:62% 50%">
+      <div class="fmt__top">
+        <h3 class="fmt__h">Организация</h3>
+      </div>
+      <div class="fmt__body">
+        <ul class="fmt__list fmt__list--2">
+          <li>Идея и&nbsp;сценарий дня: логика, эмоции, ритм</li>
+          <li>Подбор площадки, исполнителей и&nbsp;команды</li>
+          <li>Управление всей подготовкой</li>
+          <li>Мы рядом с&nbsp;самого утра до&nbsp;конца вечера</li>
+          <li>Второй координатор входит в&nbsp;стоимость</li>
+          <li>Расчёты с&nbsp;исполнителями ведём мы</li>
+        </ul>
+        <div class="fmt__price" id="price"><span class="fmt__sum">от&nbsp;121&nbsp;000&nbsp;₽</span><span class="fmt__note">организация под ключ</span></div>
+      </div>
+    </article>
+
+    <article class="fmt">
+      <img loading="lazy" class="fmt__img" src="assets/img/fmt-coord.jpg?v=2" alt="" style="object-position:72% 50%">
+      <div class="fmt__top">
+        <h3 class="fmt__h">Координация</h3>
+      </div>
+      <div class="fmt__body">
+        <ul class="fmt__list">
+          <li>Следим за&nbsp;таймингом и&nbsp;работой команды</li>
+          <li>Контролируем исполнителей на&nbsp;месте</li>
+          <li>Вы приходите и&nbsp;наслаждаетесь моментом</li>
+        </ul>
+        <div class="fmt__price"><span class="fmt__sum">от&nbsp;25&nbsp;000&nbsp;₽</span><span class="fmt__note">по&nbsp;городу</span></div>
+      </div>
+    </article>
+  </div>
+  <div class="work__cta">
+    <p class="work__ask">Не&nbsp;знаете, что&nbsp;подойдёт?<br>Позвоните, подскажем после пары&nbsp;вопросов.</p>
+    <div class="work__btns">
+      <button class="btn btn--red" type="button" data-contact aria-haspopup="true" aria-expanded="false">Связаться</button>
+      <a class="btn btn--line" href="https://t.me/elenanikolaeva12" target="_blank" rel="noopener">Написать в&nbsp;Telegram</a>
+    </div>
+  </div>
+  </div></div>
+</section>
+
+<!-- Блок 5: Лена -->
+<section class="lena" id="lena">
+  <div class="lena__grid">
+    <h2 class="lena__t1">Знакомьтесь, Лена&nbsp;—</h2>
+    <div class="lena__row">
+      <figure class="lena__photo">
+        <div class="lena__img"><img loading="lazy" src="assets/img/lena.jpg" alt="Лена, основательница XII" decoding="async"></div>
+      </figure>
+      <p class="lena__t2" data-manual>основательница<br class="br-nt">агентства XII</p>
+    </div>
+    <div class="lena__textrow">
+    <p class="lena__hi">Привет :)</p>
+    <div class="lena__text">
+      <p>К&nbsp;нам приходят близкие по&nbsp;духу люди, и&nbsp;многие после праздника остаются друзьями.</p>
+      <p>Мне важно, чтобы нам было легко друг с&nbsp;другом. Поэтому первая встреча у&nbsp;нас лично, без&nbsp;договора и&nbsp;без&nbsp;спешки. Присмотритесь, сравните, выберите своего человека.</p>
+    </div>
+    </div>
+  </div>
+</section>
+
+<!-- Блок-пауза: фото на весь экран -->
+<section class="pause" id="pause">
+  <div class="pause__frame">
+    <img loading="lazy" class="pause__img" src="assets/img/party.jpg" alt="" decoding="async">
+    <div class="hero__grid" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <img class="plus pause__plus" src="assets/svg/plus.svg" alt="">
+    <p class="pause__t1">Вы веселитесь<br>и&nbsp;наслаждаетесь</p>
+    <p class="pause__t2" data-manual>Остальное мы<br>берём на&nbsp;себя</p>
+  </div>
+</section>
+
+<!-- Блок: 12 сфер (красная рамка из кубиков) -->
+<section class="scn" id="scenario">
+  <div class="build" id="scnBuild" aria-hidden="true"></div>
+  <div class="scn__wrap"><div class="scn__frame">
+    <div class="scn__top">
+      <figure class="scn__media"><img loading="lazy" src="assets/img/scn.jpg?v=2" alt="" decoding="async"></figure>
+      <div class="scn__text">
+        <p class="scn__kicker"><i class="scn__plus" aria-hidden="true"></i>XII · Сценарий</p>
+        <h2 class="scn__title">12&nbsp;сфер, из&nbsp;которых<br>складывается ваш праздник</h2>
+        <p class="scn__lead">Мы не&nbsp;работаем по&nbsp;шаблонам. В&nbsp;каждом празднике проходим 12&nbsp;сфер:<br class="br-d"><br class="br-t"> от&nbsp;энергии и&nbsp;смысла до&nbsp;воспоминаний.<br class="br-d"><br class="br-t"> Так день проживается как&nbsp;цельная история.</p>
+        <a class="btn btn--red" href="https://t.me/elenanikolaeva12" target="_blank" rel="noopener">Расскажите, что&nbsp;празднуем</a>
+      </div>
+    </div>
+    <div class="scn__groups">
+      <div class="sg"><h3 class="sg__h">Идея и&nbsp;смысл</h3><ul class="sg__list">
+        <li><span class="sg__no">I</span><span><span class="sg__t">Энергия</span><span class="sg__d">Какое настроение будет у&nbsp;дня</span></span></li>
+        <li><span class="sg__no">II</span><span><span class="sg__t">Концепция и&nbsp;смысл</span><span class="sg__d">Идея, вокруг которой строится день</span></span></li>
+        <li><span class="sg__no">III</span><span><span class="sg__t">Символика и&nbsp;детали</span><span class="sg__d">То, что&nbsp;говорит о&nbsp;вас без&nbsp;слов</span></span></li>
+      </ul></div>
+      <div class="sg"><h3 class="sg__h">Образ и&nbsp;место</h3><ul class="sg__list">
+        <li><span class="sg__no">IV</span><span><span class="sg__t">Эстетика и&nbsp;визуал</span><span class="sg__d">Как&nbsp;день выглядит</span></span></li>
+        <li><span class="sg__no">V</span><span><span class="sg__t">Пространство</span><span class="sg__d">Где проходит и&nbsp;как&nbsp;устроено</span></span></li>
+        <li><span class="sg__no">VI</span><span><span class="sg__t">Музыка и&nbsp;атмосфера</span><span class="sg__d">Как&nbsp;день звучит</span></span></li>
+      </ul></div>
+      <div class="sg"><h3 class="sg__h">Люди и&nbsp;чувства</h3><ul class="sg__list">
+        <li><span class="sg__no">VII</span><span><span class="sg__t">Эмоции и&nbsp;переживания</span><span class="sg__d">Что&nbsp;вы чувствуете в&nbsp;каждый момент</span></span></li>
+        <li><span class="sg__no">VIII</span><span><span class="sg__t">Команда</span><span class="sg__d">Кто рядом с&nbsp;вами</span></span></li>
+        <li><span class="sg__no">IX</span><span><span class="sg__t">Впечатления</span><span class="sg__d">Что&nbsp;запомнят гости</span></span></li>
+      </ul></div>
+      <div class="sg"><h3 class="sg__h">Ритм и&nbsp;забота</h3><ul class="sg__list">
+        <li><span class="sg__no">X</span><span><span class="sg__t">Тайминг и&nbsp;ритм</span><span class="sg__d">Как&nbsp;день движется во&nbsp;времени</span></span></li>
+        <li><span class="sg__no">XI</span><span><span class="sg__t">Уют и&nbsp;забота</span><span class="sg__d">Чтобы всем было комфортно</span></span></li>
+        <li><span class="sg__no">XII</span><span><span class="sg__t">Воспоминания</span><span class="sg__d">Что&nbsp;останется после</span></span></li>
+      </ul></div>
+    </div>
+  </div></div>
+  <div class="dissolve" id="scnOut" aria-hidden="true"></div>
+</section>
+
+<!-- Блок 6: вопросы и ответы -->
+<section class="faq" id="faq">
+  <div class="faq__grid">
+  <h2 class="faq__title">Вопросы и&nbsp;ответы</h2>
+  <p class="faq__lead">То, что&nbsp;чаще всего спрашивают на&nbsp;первой встрече.</p>
+  <div class="faq__tabs" role="tablist">
+    <button class="faq__tab" type="button" role="tab" data-group="org" aria-selected="true">Организация</button>
+    <button class="faq__tab" type="button" role="tab" data-group="coord" aria-selected="false">Координация</button>
+  </div>
+  <div class="faq__group" data-group="org" role="tabpanel">
+      <div class="qa"><button class="qa__q" type="button" aria-expanded="false"><span>У&nbsp;нас пока нет идеи. Можно к&nbsp;вам?</span><span class="qa__ico" aria-hidden="true"></span></button><div class="qa__a"><div><p>Да. Начнём с&nbsp;разговора о&nbsp;вас и&nbsp;вашем празднике. Готовый сценарий не&nbsp;нужен.</p></div></div></div>
+      <div class="qa"><button class="qa__q" type="button" aria-expanded="false"><span>Можно оставить своего фотографа или&nbsp;ведущего?</span><span class="qa__ico" aria-hidden="true"></span></button><div class="qa__a"><div><p>Да. Заранее обсудим его работу с&nbsp;остальной командой и&nbsp;отдельные договорённости с&nbsp;ним.</p></div></div></div>
+      <div class="qa"><button class="qa__q" type="button" aria-expanded="false"><span>За&nbsp;сколько времени до&nbsp;свадьбы обращаться?</span><span class="qa__ico" aria-hidden="true"></span></button><div class="qa__a"><div><p>Позвоните, когда определитесь с&nbsp;датой. Если времени немного, обсудим, что&nbsp;можно успеть: это зависит от&nbsp;даты и&nbsp;задач.</p></div></div></div>
+      <div class="qa"><button class="qa__q" type="button" aria-expanded="false"><span>А&nbsp;если что-то&nbsp;пойдёт не&nbsp;по&nbsp;плану?</span><span class="qa__ico" aria-hidden="true"></span></button><div class="qa__a"><div><p>Вопросы с&nbsp;исполнителями и&nbsp;изменения тайминга берёт на&nbsp;себя координатор. При&nbsp;полной организации свадьбы работают организатор и&nbsp;второй координатор.</p></div></div></div>
+      <div class="qa"><button class="qa__q" type="button" aria-expanded="false"><span>Нужно ли&nbsp;подписывать договор на&nbsp;первой встрече?</span><span class="qa__ico" aria-hidden="true"></span></button><div class="qa__a"><div><p>Нет. Присмотритесь к&nbsp;нам и&nbsp;к&nbsp;другим организаторам. Договор подписываем, когда понимаем, что&nbsp;подходим друг другу.</p></div></div></div>
+    </div>
+  <div class="faq__group" data-group="coord" hidden role="tabpanel">
+      <div class="qa"><button class="qa__q" type="button" aria-expanded="false"><span>Что&nbsp;входит в&nbsp;координацию?</span><span class="qa__ico" aria-hidden="true"></span></button><div class="qa__a"><div><p>Вы подготовили праздник, а&nbsp;мы&nbsp;следим за&nbsp;таймингом и&nbsp;работой команды в&nbsp;день праздника: контролируем исполнителей и&nbsp;решаем вопросы на&nbsp;месте.</p></div></div></div>
+      <div class="qa"><button class="qa__q" type="button" aria-expanded="false"><span>Чем координация отличается от&nbsp;организации?</span><span class="qa__ico" aria-hidden="true"></span></button><div class="qa__a"><div><p>Организация&nbsp;— это вся подготовка от&nbsp;идеи до&nbsp;дня праздника: сценарий, площадка, исполнители. Координация&nbsp;— только день праздника: вы&nbsp;всё подготовили сами, а&nbsp;мы&nbsp;ведём его по&nbsp;плану.</p></div></div></div>
+      <div class="qa"><button class="qa__q" type="button" aria-expanded="false"><span>Сколько стоит координация?</span><span class="qa__ico" aria-hidden="true"></span></button><div class="qa__a"><div><p>Назовём на&nbsp;личной встрече, когда станет понятно, какой у&nbsp;вас праздник.</p></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Подвал -->
+<footer class="foot" id="contacts">
+  <div class="foot__glow" aria-hidden="true"></div>
+  <div class="foot__top">
+    <div class="foot__lead">
+      <h2 class="foot__title">Есть идея<br>для&nbsp;праздника?</h2>
+      <p class="foot__text">Расскажите нам о&nbsp;ней. Мы поможем сделать этот день<br class="br-d"><br class="br-t"> незабываемым и&nbsp;возьмём подготовку на&nbsp;себя.</p>
+      <div class="foot__btns">
+        <button class="btn btn--red btn--cta" type="button" data-contact aria-haspopup="true" aria-expanded="false">Связаться</button>
+        <a class="btn btn--line" href="https://t.me/elenanikolaeva12" target="_blank" rel="noopener">Написать в&nbsp;Telegram</a>
+      </div>
+    </div>
+    <nav class="foot__cols" aria-label="Навигация по сайту">
+      <ul class="foot__list">
+        <li><a href="#fest">Праздники</a></li>
+        <li><a href="#approach">Подход</a></li>
+        <li><a href="#price">Стоимость</a></li>
+        <li><a href="#faq">Вопросы</a></li>
+      </ul>
+      <div class="foot__col2">
+        <span>© 2026 XII</span>
+        <a class="foot__policy" href="privacy.html">Политика конфиденциальности</a>
+        <a href="#top">Наверх ↑</a>
+      </div>
+    </nav>
+  </div>
+  <div class="foot__mark" aria-hidden="true">
+    <svg viewBox="0 10 49.24 30" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMin meet">
+      <path d="M0 40L12.84 24.36L1 10H7.56L16.24 20.84L24.84 10H31.2L19.44 24.36L32.2 40H25.68L16.04 27.84L6.36 40H0Z"/>
+      <path d="M35.3187 10H40.5988V40H35.3187V10Z"/>
+      <path d="M43.96 10H49.24V40H43.96V10Z"/>
+    </svg>
+  </div>
+</footer>
+
+<script src="js/text-blur.js?v=7"></script>
+<script src="js/hero.js?v=3"></script>
+<script src="js/about.js?v=6"></script>
+<script src="js/fest.js?v=6"></script>
+<script src="js/work.js?v=3"></script>
+<script src="js/lena.js?v=2"></script>
+<script src="js/faq.js?v=1"></script>
+<script src="js/pause.js?v=2"></script>
+<script src="js/scn.js?v=1"></script>
+<script src="js/contact.js?v=1"></script>
+<script src="js/preloader.js?v=3"></script>
+</body>
+</html>

@@ -1,0 +1,184 @@
+/* XII — блок 3: «Какие праздники мы организуем».
+   Компьютер: 12 фото разлетаются вокруг заголовка, затем собираются в ряд из маленьких карточек;
+   одна карточка раскрыта (выше и шире), остальные раздвинуты. Наводишь на другую — раскрывается она,
+   над ней появляются цифра, заголовок и пара слов.
+   Телефон: карусель, активная карточка по центру, подпись над ней.
+   Размеры считаются через --s, как на первом экране (hero.css). */
+
+.fest{
+  --m:calc(40 * var(--s));
+  --g:calc(8 * var(--s));
+  position:relative;
+  background:var(--bg);
+  color:var(--milk);
+  padding:calc(80 * var(--s)) 0 calc(100 * var(--s));
+}
+.fest__label{
+  margin:0 var(--m) calc(32 * var(--s));
+  font-weight:600;text-transform:uppercase;
+  font-size:calc(16 * var(--s));line-height:calc(22 * var(--s));
+  letter-spacing:.02em;
+  color:rgba(240,237,227,.62);
+}
+.fest__title{
+  margin:0 var(--m) calc(40 * var(--s));
+  font-family:var(--ff-cap);font-weight:400;
+  font-size:calc(44 * var(--s));line-height:1.12;
+  color:#f9ecea;
+}
+.fest__lead{
+  margin:0 var(--m) calc(32 * var(--s));
+  max-width:calc(520 * var(--s));
+  font-weight:300;
+  font-size:calc(18 * var(--s));line-height:1.45;
+  letter-spacing:calc(-.18 * var(--s));
+  color:rgba(240,237,227,.62);
+}
+
+/* фон: выбранная фотография еле заметно подкрашивает чёрный (насыщенность задаёт --bgo) */
+.fest__bg{position:absolute;inset:0;z-index:-1;pointer-events:none;overflow:hidden;display:none}
+.fest--js .fest__bg,.fest--pin .fest__bg{display:block}
+.fest__bg i{
+  position:absolute;inset:-6%;
+  background-size:cover;background-position:center;
+  filter:blur(14px) saturate(1.2);
+  opacity:0;transition:opacity 1s ease;
+}
+.fest__bg i.on{opacity:var(--bgo,.2)}
+
+/* ---------- карточка и подпись (общее) ---------- */
+.fcard{position:relative;margin:0;outline:none;-webkit-tap-highlight-color:transparent}
+.fcard__in{
+  position:relative;width:100%;overflow:hidden;
+  border-radius:calc(14 * var(--s));background:#1a1413;
+}
+.fcard img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+
+.fcap{
+  position:absolute;left:0;bottom:calc(100% + 18 * var(--s));
+  white-space:nowrap;pointer-events:none;
+  opacity:0;transform:translateY(8px);
+  transition:opacity .35s ease,transform .5s cubic-bezier(.2,.8,.2,1);
+}
+.fcard.is-active .fcap{opacity:1;transform:none;transition-delay:.12s}
+.fcap__top{display:flex;align-items:center;gap:calc(8 * var(--s));margin-bottom:calc(8 * var(--s))}
+.fcap__plus{
+  width:calc(11 * var(--s));height:calc(11 * var(--s));flex:none;
+  background:
+    linear-gradient(var(--red),var(--red)) center / 100% 1.5px no-repeat,
+    linear-gradient(var(--red),var(--red)) center / 1.5px 100% no-repeat;
+}
+.fcap__n{
+  font-weight:300;
+  font-size:calc(14 * var(--s));line-height:1;letter-spacing:.06em;
+  color:rgba(240,237,227,.62);
+}
+.fcap__t{
+  display:block;
+  font-family:var(--ff-cap);font-weight:500;
+  font-size:calc(21 * var(--s));line-height:1.1;letter-spacing:-.01em;
+  color:#f9ecea;
+}
+.fcap__d{
+  display:block;margin-top:calc(8 * var(--s));
+  font-weight:300;
+  font-size:calc(15 * var(--s));line-height:1.3;
+  color:rgba(240,237,227,.62);
+}
+
+/* ---------- ряд: по умолчанию карусель (телефон, без скрипта) ---------- */
+.fest__row{
+  display:flex;gap:10px;
+  overflow-x:auto;scroll-snap-type:x mandatory;
+  padding:calc(118 * var(--s)) calc(50vw - 31vw) 8px;
+  scrollbar-width:none;
+}
+.fest__row::-webkit-scrollbar{display:none}
+.fcard{flex:0 0 62vw;scroll-snap-align:center}
+.fcard__in{
+  height:82vw;
+  transform:scale(.88);opacity:.55;
+  transition:transform .45s cubic-bezier(.2,.8,.2,1),opacity .45s ease;
+}
+.fcard.is-active .fcard__in{transform:none;opacity:1}
+
+/* ---------- компьютер: разлёт и ряд (включает скрипт) ---------- */
+.fest--js{padding:0;height:240vh}
+.fest--js .fest__stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
+.fest--js .fest__label{position:absolute;z-index:4;left:var(--m);top:calc(40 * var(--s));margin:0}
+.fest--js .fest__title{
+  position:absolute;z-index:3;left:50%;top:50%;margin:0;
+  transform:translate(-50%,-50%);
+  text-align:center;white-space:nowrap;
+  font-size:calc(54 * var(--s));line-height:1.12;
+  pointer-events:none;
+}
+.fest--js .fest__lead{
+  position:absolute;z-index:4;margin:0;max-width:none;opacity:0;
+  top:calc(36 * var(--s));
+  left:calc(var(--m) + (100% - 2 * var(--m)) / 12 * 8);
+  width:calc((100% - 2 * var(--m)) / 12 * 4);
+}
+.fest--js .fest__row{
+  --hr:calc((100vw - 2 * var(--m) - 11 * var(--g)) / 14 * 1.4);   /* высота обычной карточки */
+  --ha:min(calc(var(--hr) * 2.75), 54svh);                           /* высота раскрытой */
+  position:absolute;z-index:2;left:var(--m);right:var(--m);
+  top:calc(50% + 48 * var(--s) - var(--ha) / 2);height:var(--ha);
+  display:flex;align-items:center;gap:var(--g);
+  overflow:visible;padding:0;scroll-snap-type:none;
+}
+.fest--js .fcard{
+  flex:1 1 0;min-width:0;scroll-snap-align:none;opacity:0;will-change:transform,opacity;cursor:default;
+  transition:flex-grow .6s cubic-bezier(.2,.8,.2,1);
+}
+.fest--js.is-ready .fcard{cursor:pointer}
+.fest--js .fcard.is-active{flex-grow:3}
+.fest--js .fcard__in{
+  height:var(--hr);transform:none;opacity:1;
+  transition:height .6s cubic-bezier(.2,.8,.2,1);
+  animation:festFloat 7s ease-in-out infinite alternate;
+}
+.fest--js .fcard:nth-child(3n) .fcard__in{animation-duration:8.5s;animation-delay:-2s}
+.fest--js .fcard:nth-child(3n+1) .fcard__in{animation-duration:6.2s;animation-delay:-4s}
+.fest--js.is-ready .fcard__in{animation:none}
+.fest--js .fcard.is-active .fcard__in{height:var(--ha);transform:none}
+.fest--js .fcard:focus-visible .fcard__in{outline:1px solid var(--red);outline-offset:3px}
+/* последние карточки: подпись выравниваем по правому краю, чтобы не уходила за экран */
+.fest--js .fcard:nth-child(n+7) .fcap{left:auto;right:0;text-align:right}
+.fest--js .fcard:nth-child(n+7) .fcap__top{justify-content:flex-end}
+@keyframes festFloat{from{transform:translateY(-5px)}to{transform:translateY(5px)}}
+
+/* ---------- телефон ---------- */
+@media (max-width:900px){
+  .fest{--m:20px;padding:56px 0 64px}
+  .fest__label{font-size:13px;line-height:18px;margin-bottom:20px}
+  .fest__title{font-size:clamp(26px,8vw,34px);margin-bottom:16px}
+  .fest__lead{font-size:16px;line-height:1.45;letter-spacing:-.1px;margin-bottom:12px;max-width:none}
+  .fest__row{padding-top:150px}
+  .fcard__in{border-radius:16px}
+  .fcap{bottom:calc(100% + 14px);white-space:normal;width:74vw}
+  .fcap__top{gap:8px;margin-bottom:6px}
+  .fcap__plus{width:10px;height:10px}
+  .fcap__n{font-size:13px}
+  .fcap__t{font-size:clamp(18px,5.2vw,22px)}
+  .fcap__d{font-size:14px;margin-top:6px}
+}
+
+
+/* ---------- телефон: блок закрепляется, фото листаются вбок при прокрутке вниз ---------- */
+@media (max-width:900px){
+  .fest--pin{padding:0}
+  .fest--pin .fest__stage{
+    position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;
+    display:flex;flex-direction:column;padding:56px 0 24px;
+  }
+  .fest--pin .fest__row{
+    overflow:visible;scroll-snap-type:none;will-change:transform;
+    flex:1;align-items:center;margin:104px 0 0;padding:0 var(--m);
+  }
+  .fest--pin .fcard{scroll-snap-align:none}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .fcard__in{animation:none!important}
+}

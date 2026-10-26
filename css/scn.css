@@ -1,0 +1,91 @@
+/* XII — блок «12 сфер»: красные кубики падают сверху и складываются в красную рамку, внутри чёрная плашка
+   с фото слева, текстом справа и четырьмя группами сфер снизу. В конце красное рассыпается на кубики. */
+
+.scn{
+  --m:calc(40 * var(--s));                   /* нужен полосе рассыпания внизу */
+  --inset:calc(10 * var(--s));
+  --rad:calc(20 * var(--s));
+  position:relative;z-index:1;
+  background:var(--bg);color:var(--milk);
+}
+.scn__wrap{background:var(--red);padding:0 var(--inset) var(--inset)}   /* тонкая красная линия и снизу, как по бокам */
+.scn__frame{
+  --m:calc(30 * var(--s));                   /* 40 от края экрана минус отступ рамки */
+  background:var(--bg);
+  border-radius:var(--rad);
+  padding:calc(100 * var(--s)) var(--m) calc(90 * var(--s));
+}
+
+/* ---------- фото и текст ---------- */
+.scn__top{display:grid;grid-template-columns:repeat(12,1fr);align-items:center}
+.scn__media{
+  grid-column:1 / 7;margin:0 calc(24 * var(--s)) 0 0;
+  aspect-ratio:16 / 10;overflow:hidden;border-radius:calc(20 * var(--s));background:#1a1413;
+}
+.scn__media img{width:100%;height:100%;object-fit:cover;object-position:50% 40%;display:block}
+.scn__text{grid-column:7 / 13;padding-left:calc(24 * var(--s))}
+.scn__kicker{
+  margin:0 0 calc(18 * var(--s));
+  display:flex;align-items:center;gap:calc(8 * var(--s));
+  font-weight:400;text-transform:uppercase;letter-spacing:.06em;
+  font-size:calc(13 * var(--s));line-height:1;color:rgba(240,237,227,.62);
+}
+.scn__plus{
+  width:calc(11 * var(--s));height:calc(11 * var(--s));flex:none;
+  background:
+    linear-gradient(var(--red),var(--red)) center / 100% 1px no-repeat,
+    linear-gradient(var(--red),var(--red)) center / 1px 100% no-repeat;
+}
+.scn__title{
+  margin:0 0 calc(22 * var(--s));
+  font-family:var(--ff-cap);font-weight:400;
+  font-size:calc(38 * var(--s));line-height:1.12;color:#f9ecea;
+}
+.scn__lead{
+  margin:0 0 calc(32 * var(--s));white-space:nowrap;
+  font-weight:300;
+  font-size:calc(17 * var(--s));line-height:1.5;letter-spacing:calc(-.17 * var(--s));
+  color:rgba(240,237,227,.72);
+}
+
+/* ---------- 12 сфер: четыре группы ---------- */
+.scn__groups{
+  margin-top:calc(80 * var(--s));
+  display:grid;grid-template-columns:repeat(4,1fr);column-gap:calc(24 * var(--s));
+}
+.sg__n{
+  display:block;margin-bottom:calc(10 * var(--s));
+  font-weight:300;font-size:calc(13 * var(--s));letter-spacing:.14em;color:rgba(240,237,227,.5);
+}
+.sg__h{
+  margin:0 0 calc(18 * var(--s));padding-bottom:calc(16 * var(--s));
+  border-bottom:1px solid rgba(240,237,227,.16);
+  font-family:var(--ff-cap);font-weight:400;
+  font-size:calc(19 * var(--s));line-height:1.2;color:#f9ecea;
+}
+.sg__list{list-style:none;margin:0;padding:0}
+.sg__list li{
+  display:grid;grid-template-columns:calc(42 * var(--s)) 1fr;
+  padding:calc(14 * var(--s)) 0;
+  border-bottom:1px solid rgba(240,237,227,.1);
+}
+.sg__list li:last-child{border-bottom:0}
+.sg__no{font-weight:300;font-size:calc(12 * var(--s));letter-spacing:.1em;color:rgba(240,237,227,.5);padding-top:calc(3 * var(--s))}
+.sg__t{display:block;font-weight:400;font-size:calc(16 * var(--s));line-height:1.3;color:#f0ede3}
+.sg__d{display:block;margin-top:calc(4 * var(--s));font-weight:300;font-size:calc(14 * var(--s));line-height:1.35;color:rgba(240,237,227,.6)}
+
+/* ---------- телефон ---------- */
+@media (max-width:900px){
+  .scn{--m:20px;--inset:8px;--rad:20px}
+  .scn__frame{--m:12px;padding:44px var(--m) 44px}
+  .scn__top{display:block}
+  .scn__media{margin:0 0 22px;border-radius:18px}
+  .scn__text{padding-left:0}
+  .scn__kicker{font-size:11px;margin-bottom:12px}
+  .scn__title{font-size:clamp(22px,6.6vw,28px)}
+  .scn__lead{font-size:15px;white-space:normal;letter-spacing:-.1px;margin-bottom:24px}
+  .scn__groups{margin-top:44px;grid-template-columns:1fr;row-gap:36px}
+  .sg__h{font-size:18px}
+  .sg__t{font-size:15px}.sg__d{font-size:13px}
+  .sg__list li{grid-template-columns:36px 1fr;padding:12px 0}
+}

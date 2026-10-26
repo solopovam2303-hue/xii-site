@@ -1,0 +1,10 @@
+/* XII — планшет вертикально (601–900 px). Подключён последним. */
+@media (min-width:601px) and (max-width:900px){
+  .lena__t2{white-space:nowrap}
+  .lena__text{max-width:70%}
+  .scn__groups{grid-template-columns:1fr 1fr;grid-auto-flow:column;grid-template-rows:auto auto;column-gap:40px;align-items:start}
+  .fcard{flex:0 0 50vw}
+  .fcard__in{height:66vw}
+  .fcap{width:46vw}
+  .spheres{flex-wrap:nowrap;justify-content:space-between;gap:0 4px;font-size:10.5px;letter-spacing:-.01em}
+}

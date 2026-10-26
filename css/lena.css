@@ -1,0 +1,89 @@
+/* XII — блок 5: «Привет, я Лена.»
+   Фото растёт при прокрутке и отодвигает вторую строку заголовка; текст проявляется по словам.
+   Размеры через --s, края по линиям сетки первого экрана. */
+
+.lena{
+  --m:calc(40 * var(--s));
+  --col:calc((100vw - 2 * var(--m)) / 12);
+  --band:calc((100vw - 80 * var(--s)) / 72 * 6);
+  --pw:calc(var(--col) * 2);                 /* ширина фото: задаёт lena.js при прокрутке */
+  position:relative;
+  background:var(--bg);
+  color:var(--milk);
+  padding:var(--band) 0 calc(140 * var(--s));        /* отступ от красной полосы равен её высоте */
+  overflow:hidden;
+}
+.lena__grid{margin:0 var(--m)}
+
+.lena__t1,.lena__t2{
+  display:block;margin:0;
+  font-family:var(--ff-cap);font-weight:400;
+  font-size:calc(50 * var(--s));line-height:1.08;letter-spacing:-.01em;
+  color:rgba(249,236,234,.72);
+}
+
+/* вторая строка заголовка стоит справа от фото, и фото её отодвигает */
+.lena__row{display:flex;align-items:flex-start;gap:calc(28 * var(--s));margin-top:calc(8 * var(--s))}
+.lena__photo{margin:0;flex:none;width:var(--pw)}
+.lena__img{
+  position:relative;width:100%;aspect-ratio:5 / 3;overflow:hidden;
+  border-radius:calc(24 * var(--s));background:#1a1413;
+}
+.lena__img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:58% 28%;display:block}
+.lena__cap{
+  margin-top:calc(14 * var(--s));
+  font-weight:300;font-size:calc(15 * var(--s));line-height:1.3;
+  color:rgba(240,237,227,.62);white-space:nowrap;
+}
+.lena__t2{white-space:nowrap}
+
+/* строка с текстом: слева «Привет, я Лена.», справа абзацы, начиная с 7-й линии сетки и до середины между 10-й и 11-й */
+.lena__textrow{margin-top:calc(40 * var(--s));padding-top:calc(26 * var(--s));border-top:1px solid rgba(240,237,227,.16);display:grid;grid-template-columns:repeat(12,1fr);align-items:start}
+.lena__hi{
+  grid-column:1 / span 5;margin:0;
+  font-weight:300;font-size:calc(15 * var(--s));line-height:1.5;
+  color:rgba(240,237,227,.62);
+}
+.lena__text{
+  grid-column:7 / span 4;
+  position:relative;
+  margin-left:calc(14 * var(--s));            /* левый край текста совпадает с левым краем «основательница» */
+  padding-top:calc(26 * var(--s));            /* текст начинается там же, где линия */
+  width:calc(var(--col) * 3.6);
+  display:grid;gap:calc(22 * var(--s));
+}
+/* красная линия и плюс, как у блока «Что мы берём на себя» на первом экране */
+.lena__text::before{content:"";position:absolute;left:calc(-14 * var(--s));top:calc(26 * var(--s));bottom:0;width:1px;background:var(--red)}
+.lena__text::after{
+  content:"";position:absolute;left:calc(-14 * var(--s) - 5.5 * var(--s));top:calc(5.5 * var(--s));                    /* плюс на одной строке с «Привет :)» */
+  width:calc(11 * var(--s));height:calc(11 * var(--s));
+  background:
+    linear-gradient(var(--red),var(--red)) center / 100% 1px no-repeat,
+    linear-gradient(var(--red),var(--red)) center / 1px 100% no-repeat;
+}
+.lena__text p{
+  margin:0;
+  font-weight:300;
+  font-size:calc(17 * var(--s));line-height:1.5;letter-spacing:calc(-.17 * var(--s));
+}
+.lena__text .w{color:rgba(240,237,227,.26);transition:color .45s ease}
+.lena__text .w.on{color:#f0ede3}
+
+/* ---------- телефон ---------- */
+@media (max-width:900px){
+  .lena{--m:20px;--band:calc((100vw - 40px) / 30 * 5);padding:var(--band) 0 72px}
+  .lena__t1,.lena__t2{font-size:clamp(22px,6.2vw,32px)}
+  .lena__row{display:flex;flex-direction:column-reverse;align-items:stretch;gap:22px;margin-top:0}
+  .lena__photo{width:100%;transform-origin:left center}
+  .lena__img{border-radius:20px}
+  .lena__t2{padding:0}
+  .lena__textrow{display:block;margin-top:28px;padding-top:20px}
+  .lena__hi{font-size:13px;margin-bottom:14px;padding-top:0}
+  .lena__text{width:auto;gap:18px;margin-left:0;padding-top:0}
+  .lena__text::before,.lena__text::after{display:none}
+  .lena__text p{font-size:16px;letter-spacing:-.1px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .lena__text .w{color:#f0ede3;transition:none}
+}

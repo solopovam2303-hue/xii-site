@@ -1,0 +1,79 @@
+/* XII — подвал: чёрный фон, снизу поднимается красное свечение, гигантское «XII» внизу.
+   Слева логотип, оффер и кнопки; справа крупные ссылки. */
+.foot{
+  --m:calc(40 * var(--s));
+  position:relative;isolation:isolate;overflow:hidden;
+  background:#0f0e0e;color:var(--milk);
+  padding:calc(110 * var(--s)) var(--m) 0;
+}
+/* тонкая линия отделяет подвал от блока вопросов */
+.foot::before{content:"";position:absolute;left:var(--m);right:var(--m);top:0;height:1px;background:rgba(240,237,227,.18)}
+/* красное свечение, медленно «дышит» */
+.foot__glow{
+  position:absolute;left:-12%;right:-12%;bottom:-14%;height:84%;z-index:-1;
+  background:radial-gradient(ellipse 60% 74% at 50% 84%,rgba(254,67,50,1) 0%,rgba(222,52,36,.78) 28%,rgba(140,28,18,.34) 56%,rgba(15,14,14,0) 80%);
+  animation:footGlow 9s ease-in-out infinite alternate;
+}
+@keyframes footGlow{from{transform:scale(1) translateY(0);opacity:.92}to{transform:scale(1.07) translateY(-2%);opacity:1}}
+
+.foot__top{display:grid;grid-template-columns:repeat(12,1fr);align-items:start}
+.foot__lead{grid-column:1 / 7}
+.foot__logoLink{display:inline-block;margin-bottom:calc(64 * var(--s))}
+.foot__logo{display:block;width:calc(129 * var(--s));height:auto}
+.foot__title{
+  margin:0 0 calc(22 * var(--s));
+  font-family:var(--ff-cap);font-weight:400;
+  font-size:calc(52 * var(--s));line-height:1.08;letter-spacing:-.01em;color:#f9ecea;
+}
+.foot__text{
+  margin:0 0 calc(32 * var(--s));
+  font-weight:300;font-size:calc(18 * var(--s));line-height:1.45;letter-spacing:calc(-.18 * var(--s));
+  color:rgba(249,236,234,.82);
+}
+.foot__btns{display:flex;gap:calc(10 * var(--s))}
+.btn--cta{padding:calc(14 * var(--s)) calc(34 * var(--s));font-size:calc(20 * var(--s))}
+.btn--cta:hover{transform:translateY(-1px) scale(1.05)}
+.foot .btn--line{padding:calc(14 * var(--s)) calc(30 * var(--s));font-size:calc(20 * var(--s))}
+
+/* крупные ссылки справа, две колонки */
+.foot__cols{grid-column:9 / 13;display:grid;grid-template-columns:1fr 1fr;column-gap:calc(24 * var(--s));padding-top:calc(4 * var(--s))}
+.foot__list{list-style:none;margin:0;padding:0;display:grid;gap:calc(14 * var(--s))}
+.foot__list a{
+  display:inline-block;
+  font-weight:400;font-size:calc(16 * var(--s));line-height:1.25;letter-spacing:calc(-.1 * var(--s));
+  color:#f0ede3;transition:color .25s ease,transform .35s cubic-bezier(.2,.8,.2,1);
+}
+.foot__list a:hover{color:var(--red);transform:translateX(calc(6 * var(--s)))}
+.foot__col2{display:grid;gap:calc(14 * var(--s));justify-items:start;align-content:start;
+  font-weight:300;font-size:calc(16 * var(--s));line-height:1.25;color:rgba(240,237,227,.5)}
+.foot__col2 a{white-space:nowrap;color:rgba(240,237,227,.5);transition:color .25s ease}
+.foot__col2 a:hover{color:var(--milk)}
+
+/* гигантское XII: ширина по сетке, низ срезан */
+.foot__mark{
+  margin-top:calc(120 * var(--s));
+  height:calc((100vw - 2 * var(--m)) * 30 / 49.24 * .34);
+  overflow:hidden;
+  -webkit-mask-image:linear-gradient(180deg,#000 0%,#000 28%,rgba(0,0,0,0) 100%);
+  mask-image:linear-gradient(180deg,#000 0%,#000 28%,rgba(0,0,0,0) 100%);
+}
+.foot__mark svg{display:block;width:100%;height:auto}
+.foot__mark path{fill:#f0ede3}
+
+@media (max-width:900px){
+  .foot{--m:20px;padding-top:64px}
+  .foot__glow{bottom:-8%;height:56%}
+  .foot__top{display:block}
+  .foot__logoLink{margin-bottom:40px}
+  .foot__logo{width:102px}
+  .foot__title{font-size:clamp(30px,9vw,40px);margin-bottom:16px}
+  .foot__text{font-size:16px;max-width:none;letter-spacing:-.1px;margin-bottom:24px}
+  .foot__btns{flex-direction:column;gap:10px}
+  .btn--cta,.foot .btn--line{width:100%;font-size:17px;padding:15px 18px}
+  .foot__cols{display:grid;margin-top:44px;column-gap:16px}
+  .foot__list{gap:12px}
+  .foot__list a{font-size:16px;letter-spacing:-.1px}
+  .foot__col2{margin-top:6px;font-size:13px}
+  .foot__mark{margin-top:56px}
+}
+@media (prefers-reduced-motion:reduce){.foot__glow{animation:none}}
