@@ -18,12 +18,12 @@
 .lena__t1,.lena__t2{
   display:block;margin:0;
   font-family:var(--ff-cap);font-weight:400;
-  font-size:calc(44 * var(--s));line-height:1.1;letter-spacing:-.01em;
+  font-size:calc(38 * var(--s));line-height:1.12;letter-spacing:-.01em;
   color:rgba(249,236,234,.72);
 }
 
 /* вторая строка заголовка стоит справа от фото, и фото её отодвигает */
-.lena__row{display:flex;align-items:flex-start;gap:calc(28 * var(--s));margin-top:calc(8 * var(--s))}
+.lena__row{display:flex;align-items:flex-start;gap:calc(16px + 14 * var(--s));margin-top:0}
 .lena__photo{margin:0;flex:none;width:var(--pw)}
 .lena__img{
   position:relative;width:100%;aspect-ratio:5 / 3;overflow:hidden;
@@ -36,18 +36,19 @@
   color:rgba(240,237,227,.62);white-space:nowrap;
 }
 .lena__t2{white-space:nowrap}
+.lena__t1{display:none}
 
 /* справа от фото: вторая строка заголовка сверху, текст внизу, заканчивается там же, где фото */
 .lena__row{align-items:stretch}
 .lena__side{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:space-between;gap:calc(32 * var(--s))}
 .lena__text{
   position:relative;
-  margin-left:calc(14 * var(--s));            /* левый край текста совпадает с левым краем «основательница» */
+  margin-left:0;                              /* красная линия встаёт на линию сетки (7-я линия) */
   width:calc(var(--col) * 3.4);max-width:calc(100% - 14 * var(--s));
   display:grid;gap:calc(18 * var(--s));
 }
 /* красная линия и плюс, как у блока «Что мы берём на себя» на первом экране */
-.lena__text::before{content:"";position:absolute;left:calc(-14 * var(--s));top:calc(12 * var(--s));bottom:0;width:1px;background:var(--red)}
+.lena__text::before{content:"";position:absolute;left:calc(-14 * var(--s));top:calc(18 * var(--s));bottom:0;width:1px;background:var(--red)}
 .lena__text::after{
   content:"";position:absolute;left:calc(-14 * var(--s) - 5.5 * var(--s));top:calc(6.5 * var(--s));
   width:calc(11 * var(--s));height:calc(11 * var(--s));
@@ -66,7 +67,7 @@
 /* ---------- телефон ---------- */
 @media (max-width:900px){
   .lena{--m:20px;--band:calc((100vw - 40px) / 30 * 5);padding:var(--band) 0 72px}
-  .lena__t1,.lena__t2{font-size:clamp(22px,6.2vw,32px)}
+  .lena__t1,.lena__t2{font-size:clamp(21px,5.6vw,28px)}
   .lena__row{flex-direction:column;align-items:stretch;gap:22px;margin-top:0}
   .lena__side{display:contents}
   .lena__t2{order:0;padding:0}

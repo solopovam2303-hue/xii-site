@@ -34,7 +34,6 @@
 
     // фото
     var q = calm ? 1 : ease(clamp((vh * 0.92 - row.getBoundingClientRect().top) / (vh * 0.62), 0, 1));
-    if (!t2done && q > 0.1) { t2done = true; if (t2) t2.dispatchEvent(new Event('xii:play')); }
     if (mq.matches) {
       var col = (sec.clientWidth - 2 * sec.querySelector('.lena__grid').offsetLeft) / 12;
       var w0 = col * 2, w1 = col * 6 - 14;
