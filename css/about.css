@@ -50,7 +50,7 @@
   grid-column:1 / span 8;
   margin:0;
   font-family:var(--ff-cap);font-weight:400;
-  font-size:calc(34 * var(--s));line-height:1.12;
+  font-size:calc(29 * var(--s));line-height:1.14;
   color:rgba(249,236,234,.72);
 }
 .about__title .c-red{color:var(--red)}
@@ -153,7 +153,7 @@
   .about{--m:20px;padding-bottom:72px}
   .dissolve{--n:30;--rows:5}
   .about__head{display:block;margin:24px var(--m) 28px}
-  .about__title{font-size:clamp(22px,6.2vw,28px);line-height:1.14;margin-bottom:16px}
+  .about__title{font-size:clamp(20px,5.6vw,25px);line-height:1.14;margin-bottom:16px}
   .about__lead{font-size:16px;line-height:1.45;letter-spacing:-.1px}
   .spheres{flex-wrap:wrap;justify-content:flex-start;gap:8px 12px;margin:0 var(--m) 24px;padding:12px 0;font-size:13px}
   .cards{

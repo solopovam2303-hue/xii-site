@@ -39,7 +39,7 @@
 .scn__title{
   margin:0 0 calc(22 * var(--s));
   font-family:var(--ff-cap);font-weight:400;
-  font-size:calc(38 * var(--s));line-height:1.12;color:#f9ecea;
+  font-size:calc(32 * var(--s));line-height:1.14;color:#f9ecea;
 }
 .scn__lead{
   margin:0 0 calc(32 * var(--s));white-space:nowrap;
@@ -82,7 +82,7 @@
   .scn__media{margin:0 0 22px;border-radius:18px}
   .scn__text{padding-left:0}
   .scn__kicker{font-size:11px;margin-bottom:12px}
-  .scn__title{font-size:clamp(22px,6.6vw,28px)}
+  .scn__title{font-size:clamp(20px,5.8vw,25px)}
   .scn__lead{font-size:15px;white-space:normal;letter-spacing:-.1px;margin-bottom:24px}
   .scn__groups{margin-top:44px;grid-template-columns:1fr;row-gap:36px}
   .sg__h{font-size:18px}
