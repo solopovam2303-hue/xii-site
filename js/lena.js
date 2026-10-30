@@ -28,8 +28,10 @@
   var t2 = sec.querySelector('.lena__t2');
   var t2done = false;
   var busy = false;
-  function update() {
+  var gate = xiiGate(sec, '300px 0px', function () { update(true); });
+  function update(force) {
     busy = false;
+    if (force !== true && !gate.on) return;
     var vh = window.innerHeight;
 
     // фото

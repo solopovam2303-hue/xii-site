@@ -14,6 +14,7 @@
   background:radial-gradient(ellipse 60% 74% at 50% 84%,rgba(254,67,50,1) 0%,rgba(222,52,36,.78) 28%,rgba(140,28,18,.34) 56%,rgba(15,14,14,0) 80%);
   animation:footGlow 9s ease-in-out infinite alternate;
 }
+.foot.is-off .foot__glow{animation-play-state:paused}
 @keyframes footGlow{from{transform:scale(1) translateY(0);opacity:.92}to{transform:scale(1.07) translateY(-2%);opacity:1}}
 
 .foot__top{display:grid;grid-template-columns:repeat(12,1fr);align-items:start}

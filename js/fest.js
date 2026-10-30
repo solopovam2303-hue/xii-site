@@ -173,8 +173,9 @@
     }
   }
 
+  var gate = xiiGate(sec, '300px 0px', function () { if (on) update(); else pinUpdate(); });
   window.addEventListener('scroll', function () {
-    if ((on || pin) && !ticking) { ticking = true; requestAnimationFrame(function () { ticking = false; if (on) update(); else pinUpdate(); }); }
+    if ((on || pin) && gate.on && !ticking) { ticking = true; requestAnimationFrame(function () { ticking = false; if (on) update(); else pinUpdate(); }); }
   }, { passive: true });
   window.addEventListener('resize', function () { check(); update(); pinUpdate(); });
   if (mq.addEventListener) mq.addEventListener('change', check);

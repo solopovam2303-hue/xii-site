@@ -38,6 +38,7 @@
 /* фон: выбранная фотография еле заметно подкрашивает чёрный (насыщенность задаёт --bgo) */
 .fest__bg{position:absolute;inset:0;z-index:-1;pointer-events:none;overflow:hidden;display:none}
 .fest--js .fest__bg,.fest--pin .fest__bg{display:block}
+.fest.is-off .fest__bg{visibility:hidden}
 .fest__bg i{
   position:absolute;inset:-6%;
   background-size:cover;background-position:center;

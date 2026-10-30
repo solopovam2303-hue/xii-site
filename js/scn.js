@@ -36,8 +36,10 @@
     fill(out, false);
   }
   var busy = false;
-  function update() {
+  var gate = xiiGate([top, out], '300px 0px', function () { update(true); });
+  function update(force) {
     busy = false;
+    if (force !== true && !gate.on) return;
     var vh = window.innerHeight;
     var p1 = Math.max(0, Math.min(1.2, (vh - top.getBoundingClientRect().top) / (vh * 0.75)));
     top.style.setProperty('--p', p1.toFixed(3));

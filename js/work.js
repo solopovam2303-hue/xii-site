@@ -30,8 +30,10 @@
         strip.appendChild(frag);
       };
       var tick = false;
-      var upd = function () {
+      var gateB = xiiGate(strip, '300px 0px', function () { upd(true); });
+      var upd = function (force) {
         tick = false;
+        if (force !== true && !gateB.on) return;
         var vh = window.innerHeight;
         var top = strip.getBoundingClientRect().top;
         var p = Math.max(0, Math.min(1.2, (vh - top) / (vh * 0.75)));
@@ -48,8 +50,10 @@
   if (!wrap || calm) return;
   var list = Array.prototype.slice.call(wrap.querySelectorAll('.fmt'));
   var busy = false;
-  function rise() {
+  var gateF = xiiGate(wrap, '300px 0px', function () { rise(true); });
+  function rise(force) {
     busy = false;
+    if (force !== true && !gateF.on) return;
     var vh = window.innerHeight;
     var q = (vh - wrap.getBoundingClientRect().top) / (vh * 0.8);
     var dist = Math.min(90, vh * 0.1);

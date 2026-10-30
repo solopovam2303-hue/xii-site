@@ -9,8 +9,10 @@
   var played = false, busy = false;
   function clamp(v, a, b) { return Math.max(a, Math.min(b, v)); }
   function ease(t) { return 1 - Math.pow(1 - t, 3); }
-  function update() {
+  var gate = xiiGate(sec, '300px 0px', function () { update(true); });
+  function update(force) {
     busy = false;
+    if (force !== true && !gate.on) return;
     var vh = window.innerHeight;
     var top = sec.getBoundingClientRect().top;
     var q = calm ? 1 : ease(clamp((vh - top) / (vh * 0.95), 0, 1));

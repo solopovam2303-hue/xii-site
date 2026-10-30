@@ -32,8 +32,10 @@
   if (strip && !reduce) {
     build();
     var ticking = false;
-    var update = function () {
+    var gateS = xiiGate(strip, '300px 0px', function () { update(true); });
+    var update = function (force) {
       ticking = false;
+      if (force !== true && !gateS.on) return;
       var vh = window.innerHeight;
       var top = strip.getBoundingClientRect().top;
       var p = Math.max(0, Math.min(1, (vh - top) / (vh * 0.8)));
@@ -50,8 +52,10 @@
   if (cards && !reduce) {
     var list = Array.prototype.slice.call(cards.querySelectorAll('.card'));
     var rising = false;
-    var rise = function () {
+    var gateC = xiiGate(cards, '300px 0px', function () { rise(true); });
+    var rise = function (force) {
       rising = false;
+      if (force !== true && !gateC.on) return;
       var vh = window.innerHeight;
       var top = cards.getBoundingClientRect().top;
       var q = (vh - top) / (vh * 0.8);
