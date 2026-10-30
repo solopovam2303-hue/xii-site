@@ -33,6 +33,17 @@
 <noscript><style>.pre{display:none!important}html .rv,html .logo,html .plus,html .hero__media,html .hero__grid{opacity:1!important}</style></noscript>
 
 <link rel="stylesheet" href="css/tablet.css?v=3">
+<!-- Yandex.Metrika counter -->
+<script>
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();
+for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}
+k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");
+ym(113938379,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/113938379" style="position:absolute;left:-9999px" alt=""></div></noscript>
+<!-- /Yandex.Metrika counter -->
 </head>
 <body>
 
@@ -373,6 +384,21 @@
   </div>
 </footer>
 
+<div class="ck" id="ck" hidden>
+  <p>Сайт использует cookie и «Яндекс.Метрику», чтобы понимать, что работает. <a href="privacy.html">Подробнее</a></p>
+  <button type="button" id="ckOk">Хорошо</button>
+</div>
+<style>
+.ck{position:fixed;left:16px;right:16px;bottom:16px;z-index:90;max-width:420px;display:flex;align-items:center;gap:16px;padding:14px 16px;background:rgba(20,10,10,.92);border:1px solid rgba(249,236,234,.18);color:rgba(249,236,234,.8);font:13px/1.4 Geist,system-ui,sans-serif}
+.ck[hidden]{display:none}
+.ck p{margin:0}.ck a{color:inherit;text-decoration:underline}
+.ck button{flex:none;background:#fe4332;color:#fff;border:0;padding:9px 16px;font:inherit;cursor:pointer}
+</style>
+<script>
+(function(){var b=document.getElementById('ck'),k='xii-ck';
+try{if(!localStorage.getItem(k))b.hidden=false}catch(e){b.hidden=false}
+document.getElementById('ckOk').onclick=function(){b.hidden=true;try{localStorage.setItem(k,'1')}catch(e){}}})();
+</script>
 <script src="js/perf.js?v=1"></script>
 <script src="js/text-blur.js?v=7"></script>
 <script src="js/hero.js?v=3"></script>
