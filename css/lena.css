@@ -24,7 +24,7 @@
 
 /* вторая строка заголовка стоит справа от фото, и фото её отодвигает */
 .lena__row{display:flex;align-items:flex-start;gap:calc(16px + 14 * var(--s));margin-top:0}
-.lena__photo{margin:0;flex:none;width:var(--pw)}
+.lena__photo{margin:0;flex:none;width:var(--pw);will-change:transform}
 .lena__img{
   position:relative;width:100%;aspect-ratio:5 / 3;overflow:hidden;
   border-radius:calc(24 * var(--s));background:#1a1413;
@@ -40,7 +40,7 @@
 
 /* справа от фото: вторая строка заголовка сверху, текст внизу, заканчивается там же, где фото */
 .lena__row{align-items:stretch}
-.lena__side{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:space-between;gap:calc(32 * var(--s))}
+.lena__side{will-change:transform;flex:1;min-width:0;display:flex;flex-direction:column;justify-content:space-between;gap:calc(32 * var(--s))}
 .lena__text{
   position:relative;
   margin-left:0;                              /* красная линия встаёт на линию сетки (7-я линия) */

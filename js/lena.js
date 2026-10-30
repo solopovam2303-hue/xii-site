@@ -4,6 +4,7 @@
   if (!sec) return;
   var row = sec.querySelector('.lena__row');
   var photo = sec.querySelector('.lena__photo');
+  var side = sec.querySelector('.lena__side');
   var textBox = sec.querySelector('.lena__text');
   var calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var mq = window.matchMedia('(min-width: 901px)');
@@ -39,10 +40,17 @@
     if (mq.matches) {
       var col = (sec.clientWidth - 2 * sec.querySelector('.lena__grid').offsetLeft) / 12;
       var w0 = col * 2, w1 = col * 6 - 14;
-      sec.style.setProperty('--pw', (w0 + (w1 - w0) * q).toFixed(1) + 'px');
-      photo.style.transform = '';
+      // раскладка всегда итоговая (фото на 6 колонок), рост показываем только transform: без пересчёта вёрстки на каждом кадре
+      var wNow = w1.toFixed(1) + 'px';
+      if (sec.style.getPropertyValue('--pw') !== wNow) sec.style.setProperty('--pw', wNow);
+      var k = w0 / w1 + (1 - w0 / w1) * q;
+      photo.style.transformOrigin = '0 0';
+      photo.style.transform = 'scale(' + k.toFixed(4) + ')';
+      if (side) side.style.transform = 'translate3d(' + (-(1 - k) * w1).toFixed(1) + 'px,0,0)';
     } else {
       sec.style.removeProperty('--pw');
+      photo.style.transformOrigin = '';
+      if (side) side.style.transform = '';
       var sc = 0.78 + 0.22 * q;
       photo.style.transform = 'scale(' + sc.toFixed(3) + ')';
     }
